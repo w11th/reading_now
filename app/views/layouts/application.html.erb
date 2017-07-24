@@ -9,13 +9,12 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <% flash.each do |message_type, message| %>
-      <%= content_tag(:div , message, class: "alert alert-#{message_type}") %>
-    <% end %>
-    <div class="container">
+
+    <main class="container">
+      <%= render 'layouts/messages' %>
       <%= yield %>
     </div>
-    <%= render 'layouts/footer' %>
+
     <%= javascript_include_tag 'application' %>
     <%= render 'layouts/shim' %>
     <%= yield :javascripts %>

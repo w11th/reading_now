@@ -10,19 +10,19 @@ end
 gem 'rails', '~> 5.1.1'
 
 gem 'puma', '~> 3.7'
-gem 'foreman'
 
 gem 'devise'
 
 gem 'jbuilder', '~> 2.5'
+
+gem 'webpacker'
 gem 'uglifier', '>= 1.3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.2'
+
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
-
-gem 'webpacker'
 
 group :development, :test do
   gem 'sqlite3'
