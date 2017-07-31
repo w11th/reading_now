@@ -14,11 +14,6 @@
  *= require_self
  */
 
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
-@import 'font-awesome';
-
-
 $gray-base:              #000;
 $gray-darker:            lighten($gray-base, 13.5%); // #222
 $gray-dark:              lighten($gray-base, 20%);   // #333
@@ -40,20 +35,128 @@ $link-color: $brand-primary;
 $link-hover-color: darken($link-color, 15%);
 $link-hover-decoration: underline;
 
+// Basics of a navbar
+$navbar-default-color:             #777;
+$navbar-default-bg:                #f8f8f8;
+$navbar-default-border:            darken($navbar-default-bg, 6.5%);
+
+// Navbar links
+$navbar-default-link-color:                #777;
+$navbar-default-link-hover-color:          $brand-primary; // #333;
+$navbar-default-link-hover-bg:             transparent;
+$navbar-default-link-active-color:         $brand-primary; // #555;
+$navbar-default-link-active-bg:            transparent; // darken($navbar-default-bg, 6.5%);
+$navbar-default-link-disabled-color:       #ccc;
+$navbar-default-link-disabled-bg:          transparent;
+
+// Navbar brand label
+$navbar-default-brand-color:               $brand-primary; // $navbar-default-link-color;
+$navbar-default-brand-hover-color:         darken($navbar-default-brand-color, 10%);
+$navbar-default-brand-hover-bg:            transparent;
+
+// Navbar toggle
+$navbar-default-toggle-hover-bg:           transparent; // #ddd;
+$navbar-default-toggle-icon-bar-bg:        #888;
+$navbar-default-toggle-border-color:       #ddd;
+
+$grid-float-breakpoint: 992px;
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome';
+
 header {
-  .navbar .navbar-brand {
-    color: $brand-primary;
-    font-weight: bold;
-
-    &:hover {
-      color: $brand-primary;
-    }
-  }
-
   .navbar-default {
     .navbar-brand {
-      color: $brand-primary;
       font-weight: bold;
+    }
+
+    .navbar-nav {
+      > li > a {
+        &:hover,
+        &:focus {
+          border-bottom: 3px solid $navbar-default-link-hover-color;
+        }
+      }
+
+      > .active > a {
+        background-color: transparent;
+        border-bottom: 3px solid $navbar-default-link-hover-color;
+      }
+
+      > .dropdown.open {
+        > a {
+          color: $navbar-default-link-hover-color;
+          border-bottom: 3px solid $navbar-default-link-hover-color;
+        }
+
+        .dropdown-menu {
+          > li > a {
+            background-color: transparent;
+            color: $navbar-default-link-color;
+
+            &:hover,
+            &:focus {
+              background-color: $navbar-default-link-hover-color;
+              color: $navbar-default-bg;
+            }
+          }
+
+          > .active > a {
+            &,
+            &:hover,
+            &:focus {
+              background-color: $navbar-default-link-hover-color;
+              color: $navbar-default-bg;
+            }
+          }
+        }
+      }
+    }
+
+    @media(max-width: $grid-float-breakpoint) {
+      .navbar-nav {
+        > li > a {
+          &:hover,
+          &:focus {
+            border-bottom: 0;
+            border-left : 3px solid $navbar-default-link-hover-color;
+          }
+        }
+
+        > .active > a {
+          border-bottom: 0;
+          border-left: 3px solid $navbar-default-link-hover-color;
+        }
+
+        > .dropdown.open {
+          > a {
+            color: $navbar-default-link-hover-color;
+            border-bottom: 0;
+            border-left: 3px solid $navbar-default-link-hover-color;
+          }
+        }
+      }
+    }
+
+
+
+    .navbar-toggle {
+      border-color: $navbar-default-toggle-border-color;
+
+      .icon-bar {
+        background-color: $navbar-default-toggle-icon-bar-bg;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: $navbar-default-toggle-hover-bg;
+        border-color: $navbar-default-link-hover-color;
+
+        .icon-bar {
+          background-color: $navbar-default-link-hover-color;
+        }
+      }
     }
   }
 }
