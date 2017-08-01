@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ReadingNow</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= yield :stylesheets %>
+    <%= render 'layouts/shim' %>
   </head>
-
   <body>
     <%= render 'layouts/header' %>
-
     <main class="container">
       <%= render 'layouts/messages' %>
       <%= yield %>
     </div>
 
     <%= javascript_include_tag 'application' %>
-    <%= render 'layouts/shim' %>
     <%= yield :javascripts %>
   </body>
 </html>

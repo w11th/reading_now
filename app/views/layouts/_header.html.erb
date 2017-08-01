@@ -12,21 +12,15 @@
         </div>
         <div class="collapse navbar-collapse" id="main-navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active">
-              <a href="#">
-                <span class="fa fa-book"></span> <span>在读</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="fa fa-calendar"></span> <span>读迹</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="fa fa-archive"></span> <span>书库</span>
-              </a>
-            </li>
+            <%= menu_li_tag('#') do %>
+              <span class="fa fa-book"></span> <span>在读</span>
+            <% end %>
+            <%= menu_li_tag('#') do %>
+              <span class="fa fa-calendar"></span> <span>读迹</span>
+            <% end %>
+            <%= menu_li_tag('#') do %>
+              <span class="fa fa-archive"></span> <span>书库</span>
+            <% end %>
           </ul>
           <%= form_tag '#', method: :get, class: 'navbar-form navbar-left' do %>
             <div class="form-group">
@@ -35,37 +29,35 @@
           <% end %>
           <% if user_signed_in? %>
             <ul class="nav navbar-nav navbar-right">
-              <li>
-              <a href="#">
-              <span class="fa fa-envelope"></span>
-              <span>消息</span>
-              </a>
-            </li>
+              <%= menu_li_tag('#') do %>
+                <span class="fa fa-envelope"></span> <span>消息</span>
+              <% end %>
               <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              Hello, wang
-              <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-              <li><a href=""><span class="fa fa-user"></span> 个人中心</a></li>
-              <li><a href=""><span class="fa fa-cog"></span> 设置</a></li>
-              <li class="divider" role="seperator"></li>
-              <li><a href="<%= destroy_user_session_path %>"><span class="fa fa-sign-out"></span> 登出</a></li>
-              </ul>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Hello, wang
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <%= menu_li_tag(edit_user_registration_path) do %>
+                    <span class="fa fa-user"></span> 个人中心
+                  <% end %>
+                  <li class="divider" role="seperator"></li>
+                  <%= menu_li_tag('#') do %>
+                    <span class="fa fa-sign-out"></span> 登出
+                  <% end %>
+                </ul>
             </li>
             </ul>
           <% else %>
             <ul class="nav navbar-nav navbar-right">
               <li>
-                <a href="<%= new_user_registration_path %>">
+                <%= menu_li_tag(new_user_registration_path) do %>
                   <span class="fa fa-user-plus"></span> 注册
-                </a>
+                <% end %>
               </li>
-              <li>
-                <a href="<%= new_user_session_path %>">
+                <%= menu_li_tag(new_user_session_path) do %>
                   <span class="fa fa-sign-in"></span> 登录
-                </a>
-              </li>
+                <% end %>
             </ul>
           <% end %>
         </div>

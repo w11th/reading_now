@@ -73,6 +73,8 @@ header {
 
     .navbar-nav {
       > li > a {
+        border-bottom: 3px solid $navbar-default-bg;
+
         &:hover,
         &:focus {
           border-bottom: 3px solid $navbar-default-link-hover-color;
@@ -86,8 +88,8 @@ header {
 
       > .dropdown.open {
         > a {
-          color: $navbar-default-link-hover-color;
           border-bottom: 3px solid $navbar-default-link-hover-color;
+          color: $navbar-default-link-hover-color;
         }
 
         .dropdown-menu {
@@ -117,10 +119,12 @@ header {
     @media(max-width: $grid-float-breakpoint) {
       .navbar-nav {
         > li > a {
+          border-bottom: 0;
+          border-left: 3px solid $navbar-default-bg;
           &:hover,
           &:focus {
             border-bottom: 0;
-            border-left : 3px solid $navbar-default-link-hover-color;
+            border-left: 3px solid $navbar-default-link-hover-color;
           }
         }
 
@@ -131,9 +135,9 @@ header {
 
         > .dropdown.open {
           > a {
-            color: $navbar-default-link-hover-color;
             border-bottom: 0;
             border-left: 3px solid $navbar-default-link-hover-color;
+            color: $navbar-default-link-hover-color;
           }
         }
       }
