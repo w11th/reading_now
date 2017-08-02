@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'devise', media: 'all' %>
+    <%= yield :stylesheets %>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <main class="container">
+      <%= render 'layouts/messages' %>
+
+      <div class="form-container col-md-4 col-md-offset-4 text-center">
+        <div class="logo">
+          <span>READING NOW</span>
+        </div>
+        <%= yield %>
+      </div>
+
+      <%= javascript_include_tag 'devise' %>
+      <%= yield :javascripts %>
+  </body>
+</html>

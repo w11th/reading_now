@@ -1,47 +1,48 @@
 <% provide(:title, '登录') %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <%= '登录' %>
-      </div>
+<div class="navs">
+  <%= active_link_tag new_user_session_path, '登录' %>
+  <%= active_link_tag new_user_registration_path, '注册' %>
+</div>
 
-      <div class="panel-body">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="form-group">
-            <%= f.email_field :email, placeholder: '邮箱', class: 'form-control' %>
-          </div>
-
-          <div class="form-group">
-            <%= f.password_field :password, autocomplete: 'off', placeholder: '密码', class: 'form-control'%>
-          </div>
-
-          <div class="clearfix">
-            <% if devise_mapping.rememberable? -%>
-              <div class="checkbox pull-left">
-                <label>
-                  <%= f.check_box :remember_me %> 记住我
-                </label>
-              </div>
-            <% end -%>
-
-            <% if devise_mapping.recoverable? %>
-              <div class="pull-right" style="margin: 10px 0">
-                <%= link_to '忘记密码了？', new_password_path(resource_name) %>
-              </div>
-            <% end -%>
-          </div>
-
-          <div class="form-actions">
-            <%= f.submit '登录', class: 'btn btn-primary btn-lg btn-block', 'data-disable-with' => '登录中' %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-group">
+    <%= f.email_field :email, placeholder: '邮箱', class: 'form-control' %>
   </div>
 
+  <div class="form-group">
+    <%= f.password_field :password, autocomplete: 'off', placeholder: '密码', class: 'form-control'%>
+  </div>
 
+  <div class="links-line">
+    <% if devise_mapping.rememberable? %>
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :remember_me %> 记住我
+        </label>
+      </div>
+    <% end -%>
 
-</div>
-</div>
+    <% if devise_mapping.recoverable? %>
+      <div class="recovery-link">
+        <%= link_to '忘记密码了？', new_password_path(resource_name) %>
+      </div>
+    <% end -%>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit '登录', class: 'btn btn-primary btn-lg btn-block', 'data-disable-with' => '登录中' %>
+  </div>
+
+  <div class="social-buttons">
+    <div class="divider">
+      <h6>社交帐号登录</h6>
+    </div>
+    <ul>
+      <li>
+        <a class="douban" href="/usrs/auth/douban" target="_blank">
+        </a>
+      </li>
+    </ul>
+  </div>
+<% end %>

@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to 'ReadingNow', root_path, id: 'logo', class: 'navbar-brand'%>
+          <%= link_to 'READING NOW', root_path, id: 'logo', class: 'navbar-brand'%>
         </div>
         <div class="collapse navbar-collapse" id="main-navbar-collapse">
           <ul class="nav navbar-nav">
@@ -22,11 +22,11 @@
               <span class="fa fa-archive"></span> <span>书库</span>
             <% end %>
           </ul>
-          <%= form_tag '#', method: :get, class: 'navbar-form navbar-left' do %>
-            <div class="form-group">
-              <input class="form-control search-input" name="w" type="text" value="<%= params[:w] %>" placeholder="搜索图书、笔记"/>
-            </div>
-          <% end %>
+          <%#= form_tag '#', method: :get, class: 'navbar-form navbar-left' do %>
+          <!-- <div class="form-group"> -->
+          <!-- <input class="form-control search-input" name="w" type="text" value="<%= params[:w] %>" placeholder="搜索图书、笔记"/> -->
+          <!-- </div> -->
+          <%# end %>
           <% if user_signed_in? %>
             <ul class="nav navbar-nav navbar-right">
               <%= menu_li_tag('#') do %>
