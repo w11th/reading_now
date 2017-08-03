@@ -3,6 +3,7 @@
  */
 
 @import 'vars';
+@import 'devise-vars';
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'font-awesome';
@@ -10,23 +11,62 @@
 
 $social-icon-color:  #fff;
 
+body {
+  display: relative;
+
+  &:after {
+    content: '';
+    background-image: url($devise-bg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
 .form-container {
+  margin: 0 auto;
+  text-align: center;
+  width: 375px;
+
+  .error-messages {
+    text-align: left;
+  }
+
+  @media(max-width: 404px) {
+    width: 100%;
+  }
+
   .logo {
     color: $brand-primary;
-    font-size: 46px;
     font-weight: bold;
-    line-height: 65.688px;
-    margin: 30px 0 20px;
+    margin: 90px 0 30px;
+  }
+
+  .subtitle {
+    margin: 0 0 20px;
+
+    p {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      color: lighten($text-color, 25%);
+    }
   }
 
   .navs {
+    margin-bottom: 15px;
+
     a {
       border-bottom: 3px solid $body-bg;
       color: $navbar-default-link-color;
       display: inline-block;
       font-size: 18px;
-      line-height: 35px;
-      margin: 0 0 10px;
       text-decoration: none;
       width: 4em;
 
@@ -41,16 +81,26 @@ $social-icon-color:  #fff;
 
   .links-line {
     @include clearfix;
-    margin: 10px 0;
+    margin-bottom: 10px;
 
     .checkbox {
+      color: $navbar-default-link-color;
       float: left;
       margin: 0;
     }
 
-    .recovery-link {
+    .troubles-link {
       float: right;
       margin: 0;
+      > a {
+        color: $navbar-default-link-color;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          color: $navbar-default-link-color;
+        }
+      }
     }
   }
 
@@ -59,9 +109,9 @@ $social-icon-color:  #fff;
 
     .divider {
       h6 {
-        margin: 0;
         color: $navbar-default-link-color;
         display: inline-block;
+        margin: 0;
       }
 
       &:before,
@@ -84,7 +134,7 @@ $social-icon-color:  #fff;
 
     ul {
       list-style: none;
-      margin: 13px 0;
+      margin-top: 13px;
       padding: 0;
 
       li {
@@ -102,7 +152,14 @@ $social-icon-color:  #fff;
           width: 50px;
         }
       }
-
     }
+  }
+
+  .help-block {
+    text-align: left;
+  }
+
+  .sign-buttons {
+    margin: 20px 0;
   }
 }

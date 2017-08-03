@@ -42,7 +42,7 @@
                     <span class="fa fa-user"></span> 个人中心
                   <% end %>
                   <li class="divider" role="seperator"></li>
-                  <%= menu_li_tag('#') do %>
+                  <%= menu_li_tag(destroy_user_session_path) do %>
                     <span class="fa fa-sign-out"></span> 登出
                   <% end %>
                 </ul>

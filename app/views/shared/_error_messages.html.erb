@@ -1,0 +1,15 @@
+<% if target.errors.any? %>
+  <div class="error-messages">
+    <div class="alert alert-block alert-danger">
+      <a class="close" href="#" data-dismiss="alert"></a>
+      <p>
+        <strong>有 <%= target.errors.count %> 处问题导致无法提交：</strong>
+      </p>
+      <ul>
+        <% target.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

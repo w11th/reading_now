@@ -1,16 +1,20 @@
-<h2>Forgot your password?</h2>
+<% provide(:title, '重置密码') %>
+
+<div class="subtitle">
+  <h3>通过邮箱重置密码</h3>
+  <p>此功能将会发送一个邮件到你的邮箱，通过邮件内链接可以进入密码重置页面。</p>
+</div>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= render "shared/error_messages", target: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="form-group">
+    <%= f.email_field :email, placeholder: '邮箱', class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="form-actions">
+    <%= f.submit '发送密码重置邮件', class: 'btn btn-primary btn-lg btn-block' %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render 'devise/shared/sign_buttons' %>

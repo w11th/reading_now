@@ -1,8 +1,8 @@
 <% provide(:title, '登录') %>
 
 <div class="navs">
-  <%= active_link_tag new_user_session_path, '登录' %>
-  <%= active_link_tag new_user_registration_path, '注册' %>
+  <%= link_to('登录', new_user_session_path, controller_name == 'sessions' ? { class: 'active' } : {}) %>
+  <%= link_to('注册', new_user_registration_path, controller_name == 'registrations' ? { class: 'active' } : {}) %>
 </div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -24,8 +24,20 @@
     <% end -%>
 
     <% if devise_mapping.recoverable? %>
-      <div class="recovery-link">
-        <%= link_to '忘记密码了？', new_password_path(resource_name) %>
+      <div class="troubles-link dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">无法登录？ <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <%- if devise_mapping.recoverable? %>
+            <li><%= link_to '忘记密码了？', new_user_password_path %></li>
+          <% end -%>
+          <%- if devise_mapping.confirmable? %>
+            <li><%= link_to '没有收到确认邮件？', new_user_confirmation_path %></li>
+          <% end -%>
+
+          <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) %>
+            <li><%= link_to '没有收到解锁邮件？', new_user_unlock_path %></li>
+          <% end -%>
+        </ul>
       </div>
     <% end -%>
   </div>
@@ -40,7 +52,8 @@
     </div>
     <ul>
       <li>
-        <a class="douban" href="/usrs/auth/douban" target="_blank">
+        <a class="douban" href="/usrs/auth/douban" target="_blank" aria-hidden="true">
+          <span class="sr-only">使用豆瓣登录</span>
         </a>
       </li>
     </ul>
