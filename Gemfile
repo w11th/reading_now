@@ -13,6 +13,9 @@ gem 'puma', '~> 3.7'
 
 gem 'devise'
 
+gem 'omniauth'
+gem 'omniauth-douban-oauth2'
+
 gem 'jbuilder', '~> 2.5'
 
 gem 'webpacker'
