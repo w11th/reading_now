@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807095218) do
+ActiveRecord::Schema.define(version: 20170807102049) do
 
   create_table "connections", force: :cascade do |t|
     t.string "provider", null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170807095218) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_connections_on_provider_and_uid", unique: true
+    t.index ["user_id", "provider"], name: "index_connections_on_user_id_and_provider", unique: true
     t.index ["user_id"], name: "index_connections_on_user_id"
   end
 
