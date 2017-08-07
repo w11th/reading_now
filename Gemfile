@@ -14,7 +14,7 @@ gem 'puma', '~> 3.7'
 gem 'devise'
 
 gem 'omniauth'
-gem 'omniauth-douban-oauth2'
+gem 'omniauth-facebook'
 
 gem 'jbuilder', '~> 2.5'
 

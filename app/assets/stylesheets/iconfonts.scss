@@ -4,3 +4,11 @@
     content: '豆';
   }
 }
+
+.facebook {
+  background-color: #3B5998;
+  &:before {
+    font-family: FontAwesome;
+    content: '\f09a';
+  }
+}
