@@ -1,5 +1,7 @@
 // https://lipis.github.io/bootstrap-social/
 
+$opaque-color: rgba(0, 0, 0, .2);
+
 .btn-provider-icon {
   position: relative;
   width: 34px;
@@ -17,7 +19,7 @@
     left: 0;
     width: 100%;
     border: 0;
-    border-right: 1px solid rgba(0, 0, 0, .2);
+    border-right: 1px solid $opaque-color;
     font-size: 1.6em;
     line-height: 34px;
     text-align: center;
@@ -25,7 +27,7 @@
 }
 
 .btn-provider-facebook {
-  border-color: rgba(0, 0, 0, .2);
+  border-color: $opaque-color;
   background-color: #3b5998;
   color: #fff;
 
@@ -37,7 +39,7 @@
 }
 
 .btn-provider-github {
-  border-color: rgba(0, 0, 0, .2);
+  border-color: $opaque-color;
   background-color: #444;
   color: #fff;
 

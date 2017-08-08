@@ -9,31 +9,29 @@
 @import 'font-awesome';
 @import 'provider-buttons';
 
-$social-icon-color:  #fff;
-
 body {
   display: relative;
 
-  &:after {
+  &::after {
     content: '';
-    background-image: url($devise-bg);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: .3;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
     position: absolute;
     z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: .2;
+    background-image: url($devise-bg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
   }
 }
 
 .form-container {
+  width: 375px;
   margin: 0 auto;
   text-align: center;
-  width: 375px;
 
   .error-messages {
     text-align: left;
@@ -44,9 +42,9 @@ body {
   }
 
   .logo {
+    margin: 90px 0 30px;
     color: $brand-primary;
     font-weight: bold;
-    margin: 90px 0 30px;
   }
 
   .subtitle {
@@ -63,12 +61,12 @@ body {
     margin-bottom: 15px;
 
     a {
-      border-bottom: 3px solid $body-bg;
-      color: $navbar-default-link-color;
       display: inline-block;
+      width: 4em;
+      border-bottom: 3px solid $opaque-color;
+      color: $navbar-default-link-color;
       font-size: 18px;
       text-decoration: none;
-      width: 4em;
 
       &:hover,
       &:focus,
@@ -84,14 +82,14 @@ body {
     margin-bottom: 10px;
 
     .checkbox {
-      color: $navbar-default-link-color;
-      float: left;
       margin: 0;
+      float: left;
+      color: $navbar-default-link-color;
     }
 
     .troubles-link {
-      float: right;
       margin: 0;
+      float: right;
       > a {
         color: $navbar-default-link-color;
         text-decoration: none;
@@ -104,38 +102,55 @@ body {
     }
   }
 
+  .omniauth-data-line {
+    @include clearfix;
+    margin-bottom: 10px;
+
+    .checkbox {
+      margin: 0;
+      float: left;
+      color: $navbar-default-link-color;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin: 0 3px;
+    }
+  }
+
   .social-buttons {
     margin-top: 30px;
 
     .divider {
       h6 {
-        color: $navbar-default-link-color;
         display: inline-block;
         margin: 0;
+        color: $navbar-default-link-color;
       }
 
-      &:before,
-      &:after {
-        border-top: 1px solid $navbar-default-link-color;
+      &::before,
+      &::after {
         content: '';
         display: inline-block;
-        height: $font-size-h6 * $headings-line-height / 2 - 1;
         width: 70px;
+        height: $font-size-h6 * $headings-line-height / 2 - 1;
+        border-top: 1px solid $navbar-default-link-color;
       }
 
-      &:before {
+      &::before {
         margin-right: 10px;
       }
 
-      &:after {
+      &::after {
         margin-left: 10px;
       }
     }
 
     ul {
-      list-style: none;
       margin-top: 13px;
       padding: 0;
+      list-style: none;
 
       li {
         display: inline-block;
