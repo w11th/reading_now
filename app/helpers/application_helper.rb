@@ -13,10 +13,6 @@ module ApplicationHelper
     end
   end
 
-  def active_link_tag(path, text = '')
-    link_to text, path, is_active ? { class: 'active' } : {}
-  end
-
   def menu_li_tag(path, text = '')
     content_tag(:li, current_page?(path) ? { class: 'active' } : {}) do
       content_tag(:a, href: path) do

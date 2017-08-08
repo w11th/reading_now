@@ -4,4 +4,8 @@ class Connection < ApplicationRecord
   ALLOW_PROVIDERS = ['facebook'].freeze
 
   validates :provider, inclusion: { in: ALLOW_PROVIDERS }
+
+  def self.find_by_omniauth(auth)
+    find_by(provider: auth.provider, uid: auth.uid)
+  end
 end
