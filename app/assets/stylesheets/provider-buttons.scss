@@ -1,3 +1,5 @@
+// https://lipis.github.io/bootstrap-social/
+
 .btn-provider-icon {
   position: relative;
   width: 34px;
@@ -27,8 +29,21 @@
   background-color: #3b5998;
   color: #fff;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: #2d4373;
+    color: #fff;
+  }
+}
+
+.btn-provider-github {
+  border-color: rgba(0, 0, 0, .2);
+  background-color: #444;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    background-color: #2b2b2b;
     color: #fff;
   }
 }

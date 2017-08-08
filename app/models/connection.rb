@@ -1,7 +1,7 @@
 class Connection < ApplicationRecord
   belongs_to :user
 
-  ALLOW_PROVIDERS = ['facebook'].freeze
+  ALLOW_PROVIDERS = ['facebook', 'github'].freeze
 
   validates :provider, inclusion: { in: ALLOW_PROVIDERS }
 

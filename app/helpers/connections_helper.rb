@@ -15,4 +15,7 @@ module ConnectionsHelper
       end.join.html_safe
     end
   end
+
+  def omniauth_data_tag
+  end
 end

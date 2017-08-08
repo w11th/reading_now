@@ -15,6 +15,7 @@ gem 'devise'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-github'
 
 gem 'jbuilder', '~> 2.5'
 
