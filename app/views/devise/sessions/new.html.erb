@@ -50,12 +50,6 @@
     <div class="divider">
       <h6>社交帐号登录</h6>
     </div>
-    <ul>
-      <li>
-        <a class="facebook" href="<%= user_facebook_omniauth_authorize_path %>" target="_blank" aria-hidden="true">
-          <span class="sr-only">使用 Facebook 登录</span>
-        </a>
-      </li>
-    </ul>
+    <%= provider_button_list_tag %>
   </div>
 <% end %>

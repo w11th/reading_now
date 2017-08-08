@@ -44,6 +44,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         sign_in_and_redirect connection.user, event: :authentication
       else
         flash[:alert] = '没有找到绑定的帐号，请注册或登录后绑定服务'
+        session['devise.omniauth_data'] = auth
         redirect_to new_user_session_path
       end
     end
