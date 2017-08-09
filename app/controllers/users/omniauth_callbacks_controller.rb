@@ -69,7 +69,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           flash[:notice] = t('devise.sessions.signed_in')
           sign_in_and_redirect connection.user, event: :authentication
         else
-          flash[:alert] = "该 #{ provider_display_name(auth.provider)} 帐号还没有与您的帐号绑定，无法为您自动登录。"
+          flash[:alert] = "该 #{provider_display_name(auth.provider)} 帐号还没有与您的帐号绑定，无法为您自动登录。"
           store_omniauth_data(auth)
           redirect_to new_user_session_path
         end

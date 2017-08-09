@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807102049) do
+ActiveRecord::Schema.define(version: 20170809074754) do
 
   create_table "connections", force: :cascade do |t|
     t.string "provider", null: false
     t.string "uid", null: false
     t.integer "user_id"
     t.string "info_name", null: false
-    t.string "info_iamge"
+    t.string "info_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_connections_on_provider_and_uid", unique: true

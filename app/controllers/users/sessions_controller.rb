@@ -1,6 +1,8 @@
 class Users::SessionsController < Devise::SessionsController
+  include Omniauthable
+
+  around_action :establish_connection, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
-  after_action :establish_connection, only: [:create]
 
   # GET /resource/sign_in
   # def new
