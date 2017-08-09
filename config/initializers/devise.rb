@@ -262,6 +262,9 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
+  config.warden do |manager|
+    manager.failure_app = CustomFailure
+  end
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
@@ -279,5 +282,19 @@ Devise.setup do |config|
 
   Rails.application.config.to_prepare do
     Devise::RegistrationsController.layout(proc { |_controller| user_signed_in? ? "application" : "devise" })
+  end
+end
+
+# https://stackoverflow.com/a/21640890/7261402
+class CustomFailure < Devise::FailureApp
+  def redirect
+    store_location!
+    if flash[:timedout] && flash[:alert]
+      flash.keep(:timedout)
+      flash.keep(:alert)
+    elsif attempted_path != root_path
+      flash[:alert] = i18n_message
+    end
+    redirect_to redirect_url
   end
 end
