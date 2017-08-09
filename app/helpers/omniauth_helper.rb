@@ -1,4 +1,4 @@
-module ConnectionsHelper
+module OmniauthHelper
   def provider_button_tag(provider, scope = "user")
     content_tag(:a, href: send("#{scope}_#{provider}_omniauth_authorize_path"), class: "btn btn-provider-icon btn-provider-#{provider}") do
       concat content_tag(:span, '', class: "fa fa-#{provider}")
@@ -41,8 +41,8 @@ module ConnectionsHelper
     content_tag(:div, class: 'omniauth-data-line') do
       content_tag(:div, class: 'checkbox') do
         content_tag(:label) do
-          concat check_box_tag('establish_connection', '1', false)
-          concat "#{action}后绑定 #{provider_display_name(omniauth_data['provider'])} 帐号："
+          concat check_box_tag('auto_connect', '1', false)
+          concat "#{action}后自动绑定 #{provider_display_name(omniauth_data['provider'])} 帐号："
           concat content_tag(:a, omniauth_data['info']&.[]('name'),
                              href: provider_link_url(omniauth_data),
                              target: '_blank')

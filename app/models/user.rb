@@ -8,11 +8,11 @@ class User < ApplicationRecord
   has_many :connections, dependent: :destroy
 
   def establish_connection(auth)
-    connection = connections.find_or_create_by(provider: auth.provider)
+    connection = connections.find_or_create_by(provider: auth['provider'])
 
-    connection.uid = auth.uid
-    connection.info_name = auth.info.name
-    connection.info_image = auth.info.image
+    connection.uid = auth['uid']
+    connection.info_name = auth['info']&.[]('name')
+    connection.info_image = auth['info']&.[]('image')
 
     connection.save
     connection

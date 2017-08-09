@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  include ConnectionsHelper
+  include OmniauthHelper
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
