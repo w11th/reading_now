@@ -28,6 +28,9 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 
+gem 'carrierwave'
+gem 'carrierwave-aliyun'
+
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

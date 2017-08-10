@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   has_many :connections, dependent: :destroy
 
+  mount_uploader :avatar, AvatarUploader
+
+  validate :avatar_size
+
   def establish_connection(auth)
     return nil unless auth
 
@@ -20,5 +24,11 @@ class User < ApplicationRecord
 
   def destroy_connection(provider)
     connections.find_by(provider: provider).try(:destroy)
+  end
+
+  private
+
+  def avatar_size
+    errors.add(:avatar, '不能大于 2MB') if avatar.size > 2.megabytes
   end
 end

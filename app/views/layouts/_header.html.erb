@@ -34,10 +34,14 @@
               <% end %>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  Hello, wang
+                  <img alt="avatar" src="<%= current_user.avatar.url 'tiny' %>" class="img-circle"/>
                   <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
+                  <%= menu_li_tag(edit_user_registration_path) do %>
+                    <span><%= current_user.nickname || current_user.email %></span>
+                  <% end %>
+                  <li class="divider" role="seperator"></li>
                   <%= menu_li_tag(edit_user_registration_path) do %>
                     <span class="fa fa-user"></span> 个人中心
                   <% end %>
