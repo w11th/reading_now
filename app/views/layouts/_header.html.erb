@@ -38,7 +38,7 @@
                   <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <%= menu_li_tag(edit_user_registration_path) do %>
+                  <%= menu_li_tag('#') do %>
                     <span><%= current_user.nickname || current_user.email %></span>
                   <% end %>
                   <li class="divider" role="seperator"></li>
