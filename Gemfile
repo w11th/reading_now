@@ -58,7 +58,12 @@ group :development do
   gem 'pry-rails'
 
   gem 'capistrano'
+  gem 'capistrano-rbenv'
   gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano3-puma'
+
+  gem 'rails_best_practices'
 end
 
 group :production do
