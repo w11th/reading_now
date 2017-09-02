@@ -33,7 +33,7 @@ gem 'carrierwave-aliyun'
 
 gem 'sidekiq'
 
-gem 'acts-as-taggable-on', '~> 4.0'
+# gem 'acts-as-taggable-on', '~> 4.0'
 
 gem 'redis'
 gem 'redis-namespace'
@@ -46,6 +46,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -58,6 +62,8 @@ group :development do
   gem 'pry-doc'
   gem 'pry-byebug'
   gem 'pry-rails'
+
+  gem 'better_errors'
 
   gem 'capistrano'
   gem 'capistrano-rbenv'

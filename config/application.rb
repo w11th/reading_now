@@ -14,6 +14,12 @@ module ReadingNow
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.time_zone = 'Beijing'
+
+    config.i18n.default_locale = 'zh-CN'
+    config.i18n.available_locales = ['zh-CN', 'en']
+    config.i18n.fallbacks = true
+
     config.autoload_paths << "#{Rails.root}/lib"
 
     config.active_job.queue_adapter = :sidekiq
@@ -22,7 +28,8 @@ module ReadingNow
       g.assets false
       g.helper false
       g.skip_routes true
-      g.test_framework nil
+      g.test_framework :rspec
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
   end
 end
