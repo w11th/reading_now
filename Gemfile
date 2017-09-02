@@ -33,6 +33,8 @@ gem 'carrierwave-aliyun'
 
 gem 'sidekiq'
 
+gem 'acts-as-taggable-on', '~> 4.0'
+
 gem 'redis'
 gem 'redis-namespace'
 gem 'redis-rails'

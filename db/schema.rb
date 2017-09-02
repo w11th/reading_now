@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810073438) do
+ActiveRecord::Schema.define(version: 20170902133652) do
+
+  create_table "books", force: :cascade do |t|
+    t.string "isbn10"
+    t.string "isbn13"
+    t.string "title", null: false
+    t.string "subtitle"
+    t.string "image"
+    t.string "publisher"
+    t.date "publish_date"
+    t.integer "pages"
+    t.integer "douban_id"
+    t.text "summary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["isbn10"], name: "index_books_on_isbn10"
+    t.index ["isbn13"], name: "index_books_on_isbn13"
+    t.index ["publish_date"], name: "index_books_on_publish_date"
+    t.index ["publisher"], name: "index_books_on_publisher"
+    t.index ["title"], name: "index_books_on_title"
+  end
 
   create_table "connections", force: :cascade do |t|
     t.string "provider", null: false
